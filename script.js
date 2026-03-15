@@ -137,4 +137,50 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+    // Theme Toggle Logic
+    const themeToggleBtns = [document.getElementById('themeToggle'), document.getElementById('themeToggleAR')];
+    const htmlElement = document.documentElement;
+
+    // Retrieve saved theme or use system preference (defaulting to light as requested implicitly by having two themes, though let's default to light to show the difference since old was dark)
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Si no hay tema guardado, inicializamos al claro, que es el predeterminado ahora en nuestro CSS, o oscuro si lo prefiere el sistema
+    let currentTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+    
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+        } else {
+            htmlElement.removeAttribute('data-theme');
+        }
+
+        themeToggleBtns.forEach(btn => {
+            if (btn) {
+                const icon = btn.querySelector('i');
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+        });
+    };
+
+    // Aplicar al inicio
+    applyTheme(currentTheme);
+
+    themeToggleBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+                localStorage.setItem('theme', currentTheme);
+                applyTheme(currentTheme);
+            });
+        }
+    });
+
 });

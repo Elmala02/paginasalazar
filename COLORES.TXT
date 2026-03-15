@@ -1,0 +1,25 @@
+COLORES  PARA LA PAGINA WEB 
+
+TEMA CLARO 
+| Uso                | Color            | Hex       |
+| ------------------ | ---------------- | --------- |
+| Color primario     | Azul corporativo | `#0B3A6E` |
+| Color secundario   | Azul suave       | `#1F5FA8` |
+| Fondo principal    | Blanco           | `#FFFFFF` |
+| Fondo de secciones | Gris claro       | `#F5F6F8` |
+| Texto principal    | Gris oscuro      | `#2C2C2C` |
+| Texto secundario   | Gris medio       | `#6B7280` |
+| Color acento       | Dorado           | `#C9A227` |
+| Bordes             | Gris suave       | `#E5E7EB` |
+
+
+TEMA OSCURO
+| Uso              | Color            | Hex       |
+| ---------------- | ---------------- | --------- |
+| Fondo principal  | Negro azulado    | `#0A192F` |
+| Fondo secundario | Azul oscuro      | `#112240` |
+| Color primario   | Azul corporativo | `#1F5FA8` |
+| Texto principal  | Blanco suave     | `#E6EDF3` |
+| Texto secundario | Gris claro       | `#9CA3AF` |
+| Color acento     | Dorado           | `#C9A227` |
+| Bordes           | Azul gris        | `#233554` |

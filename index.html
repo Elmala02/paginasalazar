@@ -31,6 +31,9 @@
                 <li><a href="#contacto">CONTACTO</a></li>
             </ul>
             <a href="#cotizar" class="btn btn-primary btn-nav">COTIZAR</a>
+            <button id="themeToggle" class="btn btn-outline" style="border:none; padding: 0.5rem; margin-left:10px; font-size:1.2rem; cursor:pointer;" aria-label="Cambiar tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <div class="menu-icon">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -52,8 +55,9 @@
             </p>
             <div class="buttons-container">
                 <a href="#cotizar" class="btn btn-primary">SOLICITAR COTIZACIÓN</a>
-                <a href="modelos-3d.html" class="btn btn-outline" style="border-color: var(--accent-gold); color: var(--accent-gold); background-color: rgba(195, 155, 113, 0.1);">
-                    <i class="fa-solid fa-cube"></i> VER MODELOS 3D
+                <a href="modelos-3d.html" class="btn btn-outline"
+                    style="border-color: var(--accent-gold); color: var(--accent-gold); background-color: rgba(195, 155, 113, 0.1);">
+                    <i class="fa-solid fa-cube"></i> VER TUS MUEBLES EN 3D
                 </a>
                 <a href="#" class="btn btn-outline">
                     <i class="fa-brands fa-whatsapp"></i> WHATSAPP
@@ -158,11 +162,17 @@
     </section>
 
     <!-- BANNER 3D / AR -->
-    <section class="ar-banner-section" style="background-color: var(--bg-card); padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">
+    <section class="ar-banner-section"
+        style="background-color: var(--bg-card); padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">
         <div class="section-container" style="padding: 2rem;">
             <div style="max-width: 800px; margin: 0 auto;">
-                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem;">Míralos en tu propia casa</h2>
-                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">¿Quieres saber cómo se vería uno de nuestros clósets o centros de entretenimiento en tu espacio antes de comprarlo? Explora nuestro nuevo catálogo en <b style="color: var(--text-primary);">3D</b> y plásmalo en tu hogar con <b style="color: var(--accent-gold);">Realidad Aumentada</b>.</p>
+                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem;">Míralos en tu
+                    propia casa</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">¿Quieres saber cómo se
+                    vería uno de nuestros clósets o centros de entretenimiento en tu espacio antes de comprarlo? Explora
+                    nuestro nuevo catálogo en <b style="color: var(--text-primary);">3D</b> y plásmalo en tu hogar con
+                    <b style="color: var(--accent-gold);">Realidad Aumentada</b>.
+                </p>
                 <a href="modelos-3d.html" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem;">
                     <i class="fa-solid fa-cube" style="margin-right: 10px;"></i> ENTRAR AL VISUALIZADOR 3D
                 </a>
@@ -244,7 +254,8 @@
                     <p>Déjanos tus datos y un especialista se pondrá en contacto contigo para una asesoría sin
                         compromiso.</p>
                 </div>
-                <form id="contactForm" class="quote-form" action="https://formsubmit.co/nextlineenterprice@gmail.com" method="POST">
+                <form id="contactForm" class="quote-form" action="https://formsubmit.co/nextlineenterprice@gmail.com"
+                    method="POST">
                     <!-- FormSubmit Configuration -->
                     <input type="hidden" name="_subject" value="Nueva Solicitud de Cotización">
                     <input type="hidden" name="_template" value="table">
@@ -273,9 +284,12 @@
                         <label>Mensaje o medidas aproximadas</label>
                         <textarea name="Mensaje" rows="4" placeholder="Describa su idea..." required></textarea>
                     </div>
-                    <button type="submit" id="submitBtn" class="btn btn-primary w-100">ENVIAR SOLICITUD AL CORREO</button>
+                    <button type="submit" id="submitBtn" class="btn btn-primary w-100">ENVIAR SOLICITUD AL
+                        CORREO</button>
                     <!-- Contenedor para el mensaje de respuesta -->
-                    <div id="formMessage" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 4px; text-align: center; font-weight: 500;"></div>
+                    <div id="formMessage"
+                        style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 4px; text-align: center; font-weight: 500;">
+                    </div>
                 </form>
             </div>
         </div>
@@ -300,7 +314,8 @@
                     </div>
                     <p class="footer-slogan">Elevando el estándar de la carpintería moderna.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/modulares.salazar/"><i
+                                class="fa-brands fa-instagram"></i></a>
                         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     </div>
                 </div>
