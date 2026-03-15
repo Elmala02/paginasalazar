@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador 3D y AR | Modulares Salazar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Importar el componente de Google model-viewer para 3D y AR -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    
+    <style>
+        /* Estilos específicos para la página de AR */
+        body {
+            padding-top: 80px; /* Para que el navbar no tape el contenido */
+            background-image: radial-gradient(circle at 50% 0%, #1a1a24 0%, var(--bg-dark) 100%);
+        }
+        
+        .ar-hero {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ar-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .ar-hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .models-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .model-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            border-color: rgba(195, 155, 113, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 400px;
+            background-color: #f5f5f5; /* Fondo claro para resaltar el 3D si es mueble, o se puede poner oscuro */
+            --poster-color: transparent;
+        }
+
+        /* Botón de AR integrado en model-viewer (el default es blanco, lo estilizaremos) */
+        model-viewer::part(default-ar-button) {
+            background-color: var(--accent-gold);
+            color: #000;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            border: none;
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .model-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .model-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .model-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .ar-instructions {
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: rgba(195, 155, 113, 0.05);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 8px;
+        }
+
+        .ar-instructions h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .ar-instructions p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR IGUAL AL PRINCIPAL PERO CON LINKS NORMALES A INDEX -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-modulares">MODULARES</span> <span class="logo-salazar">SALAZAR</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio">INICIO</a></li>
+                <li><a href="index.html#servicios">SERVICIOS</a></li>
+                <li><a href="index.html#galeria">GALERÍA</a></li>
+                <li><a href="index.html#proceso">PROCESO</a></li>
+                <li><a href="index.html#nosotros">NOSOTROS</a></li>
+            </ul>
+            <a href="index.html#cotizar" class="btn btn-primary btn-nav">COTIZAR</a>
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER 3D -->
+    <section class="ar-hero">
+        <div class="subtitle">EXPERIENCIA INMERSIVA</div>
+        <h1>Visualizador <span class="highlight" style="color: var(--accent-gold);">3D y AR</span></h1>
+        <p>Interactúa con nuestros diseños en 3D. Rota, haz zoom y usa la Realidad Aumentada (AR) desde tu celular para proyectar los muebles directamente en tu sala o habitación.</p>
+    </section>
+
+    <!-- INSTRUCCIONES RÁPIDAS -->
+    <div class="ar-instructions">
+        <h4><i class="fa-solid fa-mobile-screen"></i> ¿Cómo ver en tu espacio real?</h4>
+        <p>Si estás desde un celular o tablet (Android / iOS), podrás ver un botón en la esquina inferior del modelo 3D que dice <b>"Ver en tu espacio"</b>. Al tocarlo, se abrirá tu cámara para que proyectes el mueble en tu piso en tamaño real.</p>
+    </div>
+
+    <!-- CONTENEDOR DE MODELOS -->
+    <section class="models-container">
+        
+        <!-- Modelo 1 (Uso un modelo de ejemplo de una Silla - Reemplazar "src" por el modelo del cliente (.glb)) -->
+        <div class="model-card">
+            <!-- 
+                Atributos:
+                - camera-controls: permite rotar y hacer zoom en la web.
+                - ar: Habilita el botón de Realidad Aumentada en móviles.
+                - shadow-intensity: Crea sombras bajo el objeto.
+                - environment-image: Iluminación realista.
+            -->
+            <model-viewer 
+                src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+                ios-src="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+                alt="Modelo 3D de Mueble" 
+                ar 
+                camera-controls 
+                auto-rotate
+                shadow-intensity="1"
+                environment-image="neutral">
+            </model-viewer>
+            <div class="model-info">
+                <h3>Silla de Diseño Moderno</h3>
+                <p>Rota el modelo arrastrando con el dedo o el mouse.</p>
+            </div>
+        </div>
+
+        <!-- Modelo 2 (Puedes añadir más copiando el div model-card) -->
+        <div class="model-card">
+            <model-viewer 
+                src="https://modelviewer.dev/shared-assets/models/glTF-Sample-Models/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf" 
+                alt="Modelo 3D Centro Entretenimiento" 
+                ar 
+                camera-controls 
+                auto-rotate
+                shadow-intensity="1">
+            </model-viewer>
+            <div class="model-info">
+                <h3>Centro de TV / Modular</h3>
+                <p>Experimenta cómo quedaría este diseño en tu estancia viva.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer-section" style="margin-top: 5rem;">
+        <div class="section-container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Modulares Salazar. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
